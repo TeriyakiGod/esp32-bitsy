@@ -7,17 +7,20 @@ class MenuBar : public GUIComponent {
 public:
     MenuBar(TFT_eSPI &display);
     void update();
-    const char* getTimeStr();
     void draw() override;
 
 private:
-    char timeStr[20];
+    char timeDateStr[30];  // Combined date and time string
     unsigned long lastUpdateTime;
     int hours;
     int minutes;
     int seconds;
+    int day;
+    int month;
+    int year;
 
     void incrementTime();
+    void updateDate();
 };
 
 #endif
